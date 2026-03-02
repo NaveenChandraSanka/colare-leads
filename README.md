@@ -83,28 +83,23 @@ Then connect your Notion integration to the database:
 ### 4. Run it
 
 ```bash
-# Load env vars and run
-source .env && export NOTION_TOKEN NOTION_DATABASE_ID
+# Recommended: use run.sh (auto-loads .env and activates venv)
+chmod +x run.sh
 
 # Dry run — search + score, print to terminal (no publishing)
-python main.py --dry-run
+./run.sh --dry-run
 
 # Full run — search, score, and publish grade C+ leads to Notion
-python main.py --min-grade C
+./run.sh --min-grade C
 
 # Save a local markdown report
-python main.py --markdown
+./run.sh --markdown
 
 # Run on a weekly schedule
-python main.py --schedule
+./run.sh --schedule
 ```
 
-Or use the included shell script:
-
-```bash
-chmod +x run.sh
-./run.sh
-```
+> **Important:** Always use `./run.sh` instead of `python main.py` directly. The run script automatically loads your `.env` secrets and activates the virtual environment. Running `python main.py` directly will fail because the environment variables won't be set.
 
 ## Configuration
 

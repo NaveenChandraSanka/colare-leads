@@ -103,8 +103,8 @@ def run_scout(
 
     if not database_id:
         logger.warning(
-            "No Notion database_id configured. Skipping Notion publish.\n"
-            "Set 'database_id' in config.yaml to enable."
+            f"No {db_env} environment variable set. Skipping Notion publish.\n"
+            "Set it in .env or run: ./run.sh to auto-load env vars."
         )
         if not save_markdown:
             date_str = datetime.now().strftime("%Y-%m-%d")
