@@ -1,0 +1,255 @@
+# Colare Lead Scout — Configuration
+# Surfaces hardtech hiring signals and scores enterprise leads for Colare.
+
+niche:
+  name: "Hardtech Hiring & Engineering Assessment"
+  description: >
+    Colare builds simulation-based technical assessments for hardtech companies.
+    This scout finds people and companies experiencing hiring pain in
+    mechanical, electrical, aerospace, robotics, defense, and energy engineering.
+
+# ---------------------------------------------------------------------------
+# Signal categories — grouped by the TYPE of buying signal they represent
+# ---------------------------------------------------------------------------
+signals:
+  hiring_pain:
+    label: "Hiring Pain"
+    weight: 3  # Highest intent — they're frustrated NOW
+    keywords:
+      - "can't find engineers"
+      - "engineering talent shortage"
+      - "hard to hire mechanical engineers"
+      - "hard to hire electrical engineers"
+      - "engineering hiring is broken"
+      - "technical interview doesn't work"
+      - "bad engineering hire"
+      - "costly mis-hire engineer"
+      - "engineering hiring takes too long"
+      - "whiteboard interview hardware"
+      - "assessing hardware engineers"
+      - "screening mechanical engineers"
+
+  scaling_teams:
+    label: "Scaling Engineering"
+    weight: 2  # Strong signal — about to hire many
+    keywords:
+      - "hiring engineers Series A"
+      - "hiring engineers Series B"
+      - "scaling engineering team"
+      - "growing our hardware team"
+      - "building out our engineering org"
+      - "hiring 50 engineers"
+      - "doubling our engineering team"
+      - "opening new engineering roles"
+      - "engineering team growth"
+
+  open_roles:
+    label: "Open Hardtech Roles"
+    weight: 2  # Active need right now
+    keywords:
+      - "hiring mechanical engineer"
+      - "hiring electrical engineer"
+      - "hiring PCB designer"
+      - "hiring battery engineer"
+      - "hiring robotics engineer"
+      - "hiring embedded systems engineer"
+      - "hiring FPGA engineer"
+      - "hiring systems engineer aerospace"
+      - "hiring controls engineer"
+      - "hiring manufacturing engineer"
+      - "we're hiring hardware"
+      - "join our engineering team robotics"
+      - "hiring CAD engineer"
+
+  assessment_frustration:
+    label: "Assessment Frustration"
+    weight: 3  # Direct pain point — Colare's exact solution
+    keywords:
+      - "technical assessment hardware"
+      - "engineering skills test"
+      - "how to evaluate mechanical engineers"
+      - "how to assess electrical engineers"
+      - "engineering take-home test"
+      - "better engineering interviews"
+      - "skills-based hiring engineers"
+      - "engineering interview process broken"
+      - "stop using whiteboard for hardware"
+
+  industry_expansion:
+    label: "Industry Momentum"
+    weight: 1  # Background signal — sector is hot
+    keywords:
+      - "defense tech hiring"
+      - "EV startup hiring engineers"
+      - "aerospace hiring boom"
+      - "robotics company hiring"
+      - "semiconductor hiring"
+      - "climate tech engineers"
+      - "advanced manufacturing hiring"
+      - "space startup engineering team"
+      - "battery startup hiring"
+
+# ---------------------------------------------------------------------------
+# Tracked companies — hardtech companies known to be scaling
+# ---------------------------------------------------------------------------
+tracked_companies:
+  - "Anduril"
+  - "Relativity Space"
+  - "Rivian"
+  - "Shield AI"
+  - "Hadrian"
+  - "Astranis"
+  - "Impulse Space"
+  - "Redwood Materials"
+  - "Archer Aviation"
+  - "Skydio"
+  - "Joby Aviation"
+  - "Gecko Robotics"
+  - "Saronic"
+  - "Hermeus"
+  - "Varda Space Industries"
+
+# ---------------------------------------------------------------------------
+# Tracked people — hiring leaders / VPs / founders in hardtech
+# ---------------------------------------------------------------------------
+tracked_people:
+  - "Palmer Luckey"      # Anduril founder
+  - "Tim Ellis"          # Relativity Space CEO
+  - "Chris Power"        # Hadrian CEO
+  - "Brandon Tseng"      # Shield AI co-founder
+  - "Adam Bry"           # Skydio CEO
+
+# ---------------------------------------------------------------------------
+# Lead scoring — weights for the 3-axis scoring model
+# ---------------------------------------------------------------------------
+scoring:
+  # Title fit: is this person a decision-maker for hiring tools?
+  title_keywords:
+    high_fit:   # 8-10 points
+      - "VP Engineering"
+      - "VP of Engineering"
+      - "Director of Engineering"
+      - "Head of Engineering"
+      - "Head of Talent"
+      - "Head of Recruiting"
+      - "Director of Talent"
+      - "VP Talent Acquisition"
+      - "VP People"
+      - "Head of People"
+      - "Engineering Manager"
+    medium_fit:  # 4-6 points
+      - "CTO"
+      - "Co-Founder"
+      - "CEO"
+      - "Founder"
+      - "Chief Technology Officer"
+      - "Technical Recruiter"
+      - "HR Director"
+      - "Talent Acquisition"
+    low_fit:     # 1-3 points
+      - "Senior Engineer"
+      - "Staff Engineer"
+      - "Principal Engineer"
+      - "Tech Lead"
+      - "Recruiter"
+
+  # Company fit: hardtech verticals that match Colare's ICP
+  company_verticals:
+    - "aerospace"
+    - "defense"
+    - "robotics"
+    - "autonomous"
+    - "EV"
+    - "electric vehicle"
+    - "battery"
+    - "semiconductor"
+    - "manufacturing"
+    - "space"
+    - "energy"
+    - "climate tech"
+    - "hardware"
+    - "embedded"
+    - "FPGA"
+    - "PCB"
+    - "CAD"
+    - "SolidWorks"
+    - "MATLAB"
+    - "GD&T"
+    - "mechatronics"
+    - "avionics"
+    - "propulsion"
+    - "lidar"
+    - "radar"
+    - "sensor"
+    - "controls"
+    - "drone"
+    - "UAV"
+
+  # Intent signals: words that suggest active buying intent
+  intent_keywords:
+    - "hiring"
+    - "recruiting"
+    - "looking for"
+    - "we need"
+    - "open role"
+    - "join our team"
+    - "scaling"
+    - "growing"
+    - "can't find"
+    - "struggling to hire"
+    - "talent shortage"
+    - "interview process"
+    - "assessment"
+    - "technical screen"
+    - "mis-hire"
+    - "time to hire"
+    - "days to fill"
+
+# ---------------------------------------------------------------------------
+# Search settings
+# ---------------------------------------------------------------------------
+search:
+  max_results_per_query: 5
+  days_back: 14
+  max_leads_per_signal: 15
+  platforms:
+    linkedin: true
+    twitter: true
+  # Additional sources (searched separately)
+  extra_sources:
+    reddit: true
+    hackernews: true
+
+# ---------------------------------------------------------------------------
+# Reddit — subreddits with hardtech hiring discussions
+# ---------------------------------------------------------------------------
+reddit:
+  subreddits:
+    - "r/engineering"
+    - "r/MechanicalEngineering"
+    - "r/ElectricalEngineering"
+    - "r/robotics"
+    - "r/aerospace"
+    - "r/ECE"
+    - "r/AerospaceEngineering"
+    - "r/manufacturing"
+  keywords:
+    - "hiring engineers"
+    - "engineering interview"
+    - "technical assessment"
+    - "hard to hire"
+
+# ---------------------------------------------------------------------------
+# Notion settings
+# ---------------------------------------------------------------------------
+notion:
+  token_env_var: "NOTION_TOKEN"
+  database_id: "316426c71b2680e48ee3ff0389a0aea2"
+
+# ---------------------------------------------------------------------------
+# Schedule
+# ---------------------------------------------------------------------------
+schedule:
+  run_time: "08:00"
+  run_day: "monday"
+  timezone: "America/Los_Angeles"

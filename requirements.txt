@@ -1,0 +1,6 @@
+ddgs>=9.0.0                 # DuckDuckGo search (free, no API keys)
+notion-client>=2.2.0        # Notion API integration
+pyyaml>=6.0                 # YAML config parsing
+schedule>=1.2.0             # Job scheduling
+requests>=2.31.0            # HTTP requests (HN Algolia API)
+beautifulsoup4>=4.12.0      # HTML parsing (engagement scraping)
