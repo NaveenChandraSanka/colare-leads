@@ -244,7 +244,7 @@ reddit:
 # ---------------------------------------------------------------------------
 notion:
   token_env_var: "NOTION_TOKEN"
-  database_id: "316426c71b2680e48ee3ff0389a0aea2"
+  database_id_env_var: "NOTION_DATABASE_ID"
 
 # ---------------------------------------------------------------------------
 # Schedule

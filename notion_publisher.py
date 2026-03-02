@@ -96,12 +96,12 @@ def publish_leads(
     Returns a summary string.
     """
     notion = get_notion_client(config)
-    database_id = config.get("notion", {}).get("database_id", "")
+    db_env = config.get("notion", {}).get("database_id_env_var", "NOTION_DATABASE_ID")
+    database_id = os.environ.get(db_env, "")
 
     if not database_id:
         raise ValueError(
-            "No Notion database_id configured. "
-            "Set 'database_id' in config.yaml under 'notion'."
+            f"Notion database ID not found. Set the {db_env} environment variable."
         )
 
     # Grade hierarchy for filtering

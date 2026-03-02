@@ -98,7 +98,8 @@ def run_scout(
 
     # Step 5: Publish to Notion
     notion_config = config.get("notion", {})
-    database_id = notion_config.get("database_id", "")
+    db_env = notion_config.get("database_id_env_var", "NOTION_DATABASE_ID")
+    database_id = os.environ.get(db_env, "")
 
     if not database_id:
         logger.warning(
